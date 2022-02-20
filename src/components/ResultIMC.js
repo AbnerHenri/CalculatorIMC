@@ -1,12 +1,19 @@
 import React from "react";
-import { View, Text } from 'react-native'
+import { View, Text, Image } from 'react-native'
+import Styles from "../styles/FormStyle";
+import CategoryImage from '../assets/customer-behavior.png'
 
 function Result(props){
     return(
-        <View>
-            <Text>{props.messageResult}</Text>
-            <Text>{props.resultIMC}</Text>
-            <Text>Categoria : {props.category}</Text>
+        <View style={{display : 'flex', alignItems : 'center'}}>
+            <Text style={Styles.message}>{props.messageResult}</Text>
+            <Text style={Styles.result}>{props.resultIMC}</Text>
+
+            <View style={Styles.resultBox}>
+                <Image source={CategoryImage} style={Styles.logo} />
+                <Text style={Styles.result}>{props.category}</Text>
+            </View>
+            
         </View>
     )
 }

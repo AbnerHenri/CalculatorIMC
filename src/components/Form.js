@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { TextInput, Text, View, Button } from 'react-native'
+import Styles from "../styles/FormStyle";
+import { TextInput, Text, View, TouchableOpacity } from 'react-native'
 import Result from './ResultIMC'
 
 function Form(){
@@ -51,6 +52,7 @@ function Form(){
         setImc(null)
         setHeight(null)
         setWeight(null)
+        setCategory('')
         setTextButton('Calcular')
         setMessage('Preencha o peso e altura')
     }
@@ -61,15 +63,30 @@ function Form(){
 
 
     return(
-        <View>
-            <View>
-                <Text>Altura</Text>
-                <TextInput placeholder="Ex : 1.75" keyboardType="numeric" onChangeText={setHeight} value={height}></TextInput>
-                <Text>Peso</Text>
-                <TextInput placeholder="Ex : 68kg" keyboardType="numeric" onChangeText={setWeight} value={weight}></TextInput>
+        <View style={Styles.boxForm}>
+            <View  style={Styles.formContext}>
+                <Text style={{fontSize : 18}}>Altura</Text>
+                <TextInput  
+                    placeholderTextColor={'gray'} 
+                    style={Styles.inputs} 
+                    placeholder="Ex : 1.75" 
+                    keyboardType="numeric"
+                     onChangeText={setHeight} 
+                     value={height}></TextInput>
+
+                <Text style={{fontSize : 18}}>Peso</Text>
+                <TextInput  
+                    placeholderTextColor={'gray'} 
+                    style={Styles.inputs} 
+                    placeholder="Ex : 68kg" 
+                    keyboardType="numeric" 
+                    onChangeText={setWeight} 
+                    value={weight}></TextInput>
             </View>
 
-            <View><Button onPress={() => ValidationImc()} title={textButton}/></View>
+            <TouchableOpacity style={Styles.button} onPress={() => ValidationImc()}>
+                <Text style={Styles.textButton}>{textButton}</Text>
+            </TouchableOpacity>
 
             <Result messageResult={message} resultIMC={imc} category={category}/>
         </View>
