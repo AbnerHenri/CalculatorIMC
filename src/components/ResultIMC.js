@@ -1,11 +1,12 @@
 import React from "react";
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 
 function Result(props){
     return(
         <View>
-            <Text>{props.resultIMC}</Text>
             <Text>{props.messageResult}</Text>
+            <Text>{props.resultIMC}</Text>
+            <Text>Categoria : {props.category}</Text>
         </View>
     )
 }
