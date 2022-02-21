@@ -50,6 +50,14 @@ const Styles = StyleSheet.create({
         color : '#ffffff',
     },
 
+    shareButton : {
+        padding: 10,
+        paddingHorizontal : 20,
+        top : 20,
+        borderRadius : 20,
+        backgroundColor : '#478bff',
+    },  
+
     logo : {
         flexDirection : 'row',
         width : 50,
@@ -77,8 +85,7 @@ const Styles = StyleSheet.create({
 
     message : {
         fontSize : 20,
-        margin : 10,
-        marginBottom : 20,
+        marginTop : 5,
         color : 'red'
     }
 })
