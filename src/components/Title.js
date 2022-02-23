@@ -5,7 +5,7 @@ import Styles from '../styles/FormStyle'
 function Title(){
     return(
         <View style={Styles.boxTitle}>
-            <Text style={Styles.textTitle} >ONEBITHEALTH</Text>
+            <Text style={Styles.textTitle} >Calculator IMC</Text>
         </View>
     )
 }

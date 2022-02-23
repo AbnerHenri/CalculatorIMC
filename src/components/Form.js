@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Styles from "../styles/FormStyle";
-import { TextInput, Text, View, TouchableOpacity } from 'react-native'
+import { TextInput, Text, View, TouchableOpacity, Pressable, Keyboard } from 'react-native'
 import Result from './ResultIMC'
 
 function Form(){
@@ -13,7 +13,8 @@ function Form(){
     const [category, setCategory] = useState(null)
 
     function CalcIMC(){
-        return setImc((weight / (height*height)).toFixed(2))
+        let heightFormat = height.replace(',', '.')
+        return setImc((weight / (heightFormat*heightFormat)).toFixed(2))
     }
 
     function ValidationCategory(){
@@ -46,6 +47,7 @@ function Form(){
             setWeight(null)
             setMessage('Seu IMC é : ')
             setTextButton('Calcular Novamente')
+            Keyboard.dismiss()
             return
         }
 
@@ -63,7 +65,7 @@ function Form(){
 
 
     return(
-        <View style={Styles.boxForm}>
+        <Pressable onPress={Keyboard.dismiss} style={Styles.boxForm}>
             <View  style={Styles.formContext}>
                 <Text style={{fontSize : 18}}>Altura</Text>
                 <TextInput  
@@ -89,7 +91,7 @@ function Form(){
             </TouchableOpacity>
 
             <Result messageResult={message} resultIMC={imc} category={category}/>
-        </View>
+        </Pressable>
     )
 }
 
