@@ -24,13 +24,12 @@ function Result(props){
             </View>
 
             <View>
-                {props.resultIMC != null ? 
-                    <TouchableOpacity style={Styles.shareButton} onPress={onShare}>
-                        <Text style={{color : 'white'}}>Compartilhar</Text>
-                    </TouchableOpacity>
-                    :
-                    <View />
-                }
+                
+                <TouchableOpacity style={Styles.shareButton} onPress={onShare}>
+                    <Text style={{color : 'white'}}>Compartilhar</Text>
+                </TouchableOpacity>
+                <View />
+    
             </View>
             
         </View>

@@ -22,7 +22,7 @@ const Styles = StyleSheet.create({
     },
 
     boxForm : {
-        padding : 50,
+        padding : 90,
         borderRadius : 30,
         backgroundColor : '#ffffff'
     },  
@@ -40,6 +40,8 @@ const Styles = StyleSheet.create({
         borderRadius : 30,
         width : 320,
         height : 50,
+        marginTop : 60,
+        marginBottom : 50,
         justifyContent : 'center',
         backgroundColor : '#ff0043'
     },
@@ -71,7 +73,7 @@ const Styles = StyleSheet.create({
         borderWidth : 2,
         borderColor : '#ff0043',
         borderRadius : 10,
-        padding : 10,
+        padding : 18,
         width : '105%',   
     },
 
@@ -87,6 +89,16 @@ const Styles = StyleSheet.create({
         fontSize : 20,
         marginTop : 5,
         color : 'red'
+    },
+
+    listImcText : {
+        borderWidth : 2,
+        borderRadius : 18,
+        borderColor : '#ff0043',
+        textAlign : 'center',
+        padding : 15,
+        margin : 20,
+        fontSize : 20,
     }
 })
 

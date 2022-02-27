@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Styles from "../styles/FormStyle";
-import { TextInput, Text, View, TouchableOpacity, Pressable, Keyboard } from 'react-native'
+import { TextInput, Text, View, TouchableOpacity, Pressable, Keyboard, Vibration, FlatList } from 'react-native'
 import Result from './ResultIMC'
 
 function Form(){
@@ -11,10 +11,13 @@ function Form(){
     const [imc, setImc] = useState(null)
     const [textButton, setTextButton] = useState('Calcular')
     const [category, setCategory] = useState(null)
+    const [imcList, setImcList] = useState([])
 
     function CalcIMC(){
         let heightFormat = height.replace(',', '.')
-        return setImc((weight / (heightFormat*heightFormat)).toFixed(2))
+        let totalImc = (weight / (heightFormat*heightFormat)).toFixed(2)
+        setImcList((arr) => [...arr, {id : new Date().getTime(), imc : totalImc}])
+        setImc(totalImc)
     }
 
     function ValidationCategory(){
@@ -49,14 +52,16 @@ function Form(){
             setTextButton('Calcular Novamente')
             Keyboard.dismiss()
             return
+        }else{
+            Vibration.vibrate()
+            setImc(null)
+            setHeight(null)
+            setWeight(null)
+            setCategory('')
+            setTextButton('Calcular')
+            Keyboard.dismiss()
+            setMessage('Preencha o peso e altura')
         }
-
-        setImc(null)
-        setHeight(null)
-        setWeight(null)
-        setCategory('')
-        setTextButton('Calcular')
-        setMessage('Preencha o peso e altura')
     }
 
     useEffect(()=>{
@@ -65,8 +70,8 @@ function Form(){
 
 
     return(
-        <Pressable onPress={Keyboard.dismiss} style={Styles.boxForm}>
-            <View  style={Styles.formContext}>
+        <View style={Styles.boxForm}>{ imc == null ? 
+        <Pressable onPress={Keyboard.dismiss} style={Styles.formContext} >
                 <Text style={{fontSize : 18}}>Altura</Text>
                 <TextInput  
                     placeholderTextColor={'gray'} 
@@ -84,14 +89,30 @@ function Form(){
                     keyboardType="numeric" 
                     onChangeText={setWeight} 
                     value={weight}></TextInput>
-            </View>
+            
+                <Text style={{fontSize : 20, color : '#ff0043'}}>{message}</Text>
 
             <TouchableOpacity style={Styles.button} onPress={() => ValidationImc()}>
                 <Text style={Styles.textButton}>{textButton}</Text>
             </TouchableOpacity>
+            </Pressable>
 
-            <Result messageResult={message} resultIMC={imc} category={category}/>
-        </Pressable>
+            : <View>
+                <Result messageResult={message} resultIMC={imc} category={category}/>
+                    <TouchableOpacity style={Styles.button} onPress={() => ValidationImc()}>
+                        <Text style={Styles.textButton}>{textButton}</Text>
+                    </TouchableOpacity>
+
+
+                    <FlatList 
+                        showsVerticalScrollIndicator={false}
+                        data={imcList.reverse()}
+                        renderItem={({item})=> 
+                            <Text style={Styles.listImcText}>Resultado IMC : {item.imc}</Text>}
+                        keyExtractor={(item)=> item.id} />
+                </View>
+                }
+        </View>
     )
 }
 
