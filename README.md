@@ -6,9 +6,9 @@ Uma calculadora para indice de massa corporal feita em React-Native com Expo CLI
 
 <hr>
 
-<img src='./src/assets/CalcularImcGif.gif' align='center'></img><br><br>
-<img src='./src/assets/EmulatorImg1.png' align='center'></img><br><br>
-<img src='./src/assets/EmulatorImg2.png' align='center'></img><br><br>
+<div align='center'><img src='./src/assets/CalcularImcGif.gif'></img></div><br><br>
+<div align='center'><img src='./src/assets/EmulatorImg1.png' align='center'></img></div><br><br>
+<div align='center'><img src='./src/assets/EmulatorImg2.png' align='center'></img></div><br><br>
 
 ✅ Categoria de peso <br>
 ✅ Histórico de IMC
