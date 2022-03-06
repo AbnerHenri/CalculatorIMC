@@ -5,7 +5,9 @@ Criei com o objetivo de aprender as tags básicas do React-Native
 
 <hr>
 
-<img src='/src/assets/CalculatorImcGif.gif'></img>
+<img src='./src/assets/CalcularImcGif.gif'></img><br>
+<img src='./src/assets/EmulatorImg1.png'></img><br>
+<img src='./src/assets/EmulatorImg2.png'></img><br>
 
 ✅ Categoria de peso <br>
 ✅ Histórico de IMC
@@ -17,3 +19,4 @@ Criei com o objetivo de aprender as tags básicas do React-Native
 - JavaScript
 - React-Native
 - Expo
+
