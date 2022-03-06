@@ -5,9 +5,9 @@ Criei com o objetivo de aprender as tags básicas do React-Native
 
 <hr>
 
-<img src='./src/assets/CalcularImcGif.gif'></img><br>
-<img src='./src/assets/EmulatorImg1.png'></img><br>
-<img src='./src/assets/EmulatorImg2.png'></img><br>
+<img src='./src/assets/CalcularImcGif.gif' align='center'></img><br>
+<img src='./src/assets/EmulatorImg1.png' align='center'></img><br>
+<img src='./src/assets/EmulatorImg2.png' align='center'></img><br>
 
 ✅ Categoria de peso <br>
 ✅ Histórico de IMC
